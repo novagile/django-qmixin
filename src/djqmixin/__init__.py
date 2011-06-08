@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-__version__ = '0.1'
+__version__ = '0.2'
 
 from django.db import models
-
+from django.contrib.sites.managers import CurrentSiteManager
 
 class QMixin(dict):
     
@@ -21,9 +21,7 @@ class QMixin(dict):
     def __repr__(self):
         return 'QMixin(%r)' % (dict(self),)
 
-
-class Manager(models.Manager):
-    
+class BaseManager(models.Manager):
     # If this is the default manager for a model, use this manager class for
     # relations (i.e. `group.people`, see README for details).
     use_for_related_fields = True
@@ -88,6 +86,10 @@ class Manager(models.Manager):
         except AttributeError:
             raise
 
+class Manager(BaseManager):
+    pass
+class SiteManager(CurrentSiteManager, BaseManager):
+    pass
 
 
 def merge_mixins(mixins):
