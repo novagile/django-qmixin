@@ -29,6 +29,9 @@ setup(
     author_email     = "zacharyvoase@me.com",
     url              = 'http://github.com/zacharyvoase/django-qmixin',
     description      = "A Django app for extending managers and the querysets they produce.",
-    packages         = find_packages(where='src'),
-    package_dir      = {'': 'src'},
+#    packages         = find_packages(where='src'),
+#    package_dir      = {'': 'src'},
+    setup_requires = ["setuptools_git >= 0.3",],
+    packages        = find_packages(),
+
 )
