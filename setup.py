@@ -18,7 +18,7 @@ def read_from(filename):
         fp.close()
 
 def get_version():
-    data = read_from(rel_file('src', 'djqmixin', '__init__.py'))
+    data = read_from(rel_file('djqmixin', '__init__.py'))
     return re.search(r"__version__ = '([^']+)'", data).group(1)
 
 
