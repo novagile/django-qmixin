@@ -4,8 +4,7 @@
 import os
 import re
 
-from distribute_setup import use_setuptools; use_setuptools()
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 rel_file = lambda *args: os.path.join(os.path.dirname(os.path.abspath(__file__)), *args)
@@ -31,7 +30,6 @@ setup(
     description      = "A Django app for extending managers and the querysets they produce.",
 #    packages         = find_packages(where='src'),
 #    package_dir      = {'': 'src'},
-    setup_requires = ["setuptools_git >= 0.3",],
-    packages        = find_packages(),
+    packages         = ['djqmixin'],
 
 )
